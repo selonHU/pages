@@ -1,0 +1,112 @@
+/**
+ * Some CSS because Jump would look pretty ugly without it.
+ *
+ * @author Dale Davies <dale@daledavies.co.uk>
+ * @license MIT
+ */
+
+
+/* First get all our imports */
+
+@use 'footer-bar';
+@use 'greeting';
+@use 'header-bar';
+@use 'search';
+@use 'sites';
+@use 'tags';
+@use '../debugger.css';
+
+
+/* Some generic styles */
+
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+         url('../font/quicksand-v28-latin-regular.woff2') format('woff2'),
+         url('../font/quicksand-v28-latin-regular.woff') format('woff');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    background: #000;
+}
+
+.fixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.enable {
+    display: block !important;
+}
+
+.background {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    transform: scale(1.07);
+    z-index: 1;
+}
+
+.unsplash {
+    display: block;
+    position: fixed;
+    width: 100%;
+    bottom: 23px;
+    z-index: 100;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 11px;
+    opacity: 0.6;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+            font-weight: bold;
+        }
+    }
+}
+
+.content {
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    width: 100%;
+    max-width: 750px;
+    margin: -20px auto 0 auto;
+    height: calc(100% - 12px) /* 12px = roughly half the greeting height and border */
+}
+
+@media (max-width: 850px) {
+    .unsplash {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .content {
+        display: block;
+        margin-top: 80px;
+        height: calc(100% - 80px - 80px);
+    }
+}
